@@ -1,0 +1,8 @@
+{
+  "name": "Orgateem",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "6c543650"
+}
