@@ -1,17 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Events
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-row>
+  <!--<ion-row *ngFor="let item of appService.getEvents()">-->
+    <h3>01-01-22<!--{{ item.date }}--></h3>
+  </ion-row>
+  <!--<ion-row *ngFor="let item of appService.getEvents()">-->
+    <ion-row>
+    <ion-col size="2">
+      photo
+      <!--{{ item.photo }}-->
+    </ion-col>
+    <ion-col size="6">
+      <ion-row><ion-col>name<!--{{ item.name }}--></ion-col></ion-row>
+      <ion-row><ion-col>descripten<!--{{ item.descripten }}--></ion-col></ion-row>
+      <ion-row><ion-col>wann<!--{{ item.wann }}--></ion-col></ion-row>
+    </ion-col>
+    <ion-col size="1">
+      <ion-button (click)="appservice.zusagen(item)"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
+    </ion-col>
+    <ion-col size="1">
+      <ion-button (click)="appservice.vielleicht(item)"><ion-icon name="help-outline"></ion-icon></ion-button>
+    </ion-col>
+    <ion-col size="1">
+      <ion-button (click)="appservice.absagen(item)"><ion-icon name="ban-outline"></ion-icon></ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>
