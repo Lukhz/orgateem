@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wahausarbeit-sose22": {
+      "hosting": {
+        "app": [
+          "wahausarbeit-sose22"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wahausarbeit-sose22"
+  }
+}

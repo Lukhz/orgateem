@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Herzlich Willkommen, bitte loggt dich ein!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="credentials" (ngSubmit)="login()">
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      ></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="(email.dirty || email.touched) && email.errors"
+        >Email ist ungueltig!</ion-note
+      >
+    </ion-item>
+
+    <ion-item fill="solid" class="ion-margin-button">
+      <ion-input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      ></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="(password.dirty || password.touched) && password.errors"
+        >Passwort ist zu kurz oder ungueltig!</ion-note
+      >
+    </ion-item>
+
+    <ion-button
+      expand="full"
+      fill="outline"
+      type="submit"
+      [disabled]="!credentials.valid"
+      >Login</ion-button
+    >
+    <ion-button expand="block" type="button" (click)="register()"
+      >Account erstellen</ion-button
+    >
+  </form>
+</ion-content>
