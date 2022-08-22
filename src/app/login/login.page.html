@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Herzlich Willkommen, bitte loggt dich ein!</ion-title>
+    <ion-title
+      >Herzlich willkommen! <br />
+      Loggt dich ein...</ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
@@ -9,31 +12,31 @@
     <ion-item fill="solid" class="ion-margin-bottom">
       <ion-input
         type="email"
-        placeholder="Email"
+        placeholder="E-Mail"
         formControlName="email"
       ></ion-input>
       <ion-note
         slot="error"
         *ngIf="(email.dirty || email.touched) && email.errors"
-        >Email ist ungueltig!</ion-note
+        >Email ist ungültig!</ion-note
       >
     </ion-item>
 
     <ion-item fill="solid" class="ion-margin-button">
       <ion-input
         type="password"
-        placeholder="Password"
+        placeholder="Passwort eingeben"
         formControlName="password"
       ></ion-input>
       <ion-note
         slot="error"
         *ngIf="(password.dirty || password.touched) && password.errors"
-        >Passwort ist zu kurz oder ungueltig!</ion-note
+        >Passwort ist zu kurz oder ungültig!</ion-note
       >
     </ion-item>
 
     <ion-button
-      expand="full"
+      expand="block"
       fill="outline"
       type="submit"
       [disabled]="!credentials.valid"
