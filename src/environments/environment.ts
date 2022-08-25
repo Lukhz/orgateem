@@ -12,7 +12,8 @@ export const environment = {
     authDomain: 'wahausarbeit-sose22.firebaseapp.com',
     messagingSenderId: '32268022739',
   },
-  production: false
+  production: false,
+  mapsKey: 'AIzaSyCsoY6-iLzUlPQCXGRmJmk-5OIHXcAI9yE',
 };
 
 /*
