@@ -25,8 +25,8 @@ export class Tab3Page {
       // forceCreate: true,
       config: {
         center: {
-          lat: 33.6,
-          lng: -117.9,
+          lat: 52.283333,
+          lng: 8.050000,
         },
         zoom: 8,
       },
