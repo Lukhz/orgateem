@@ -41,8 +41,8 @@ export class Tab3Page {
     const markersArray: Marker[] = [
       {
         coordinate: {
-          lat: 34.3,
-          lng: -118.2,
+          lat: 52.3,
+          lng: 8.2,
         },
         title: 'lits me',
         snippet: 'Bester ort zum Saufen',
