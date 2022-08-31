@@ -32,7 +32,11 @@ const routes: Routes = [
     path: '**',
     redirectTo: '',
     pathMatch: 'full',
+  },  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   },
+
   /* {
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
