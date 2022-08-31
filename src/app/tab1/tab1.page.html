@@ -1,11 +1,8 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="orange">
     <ion-buttons slot="end">
-      <ion-button color="danger" (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-      </ion-button>
     </ion-buttons>
-    <ion-title> Deine Termine </ion-title>
+    <ion-title > Deine Termine </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +12,7 @@
     <h3>01-01-22<!--{{ item.date }}--></h3>
   </ion-row>
   <!--<ion-row *ngFor="let item of appService.getEvents()">-->
-  <ion-card>
+  <ion-card >
     <ion-card-header>
       name<!--{{ item.name }}-->
     </ion-card-header>
@@ -53,8 +50,8 @@
 
 
 <!--Ab hier plus Button fürs hinzufügen-->
-<ion-fab vertical="bottom" horizontal="center" slot="fixed" id="trigger-button">
-  <ion-fab-button>
+<ion-fab color="primary" vertical="bottom" horizontal="center" slot="fixed" id="trigger-button">
+  <ion-fab-button color="orange">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>
