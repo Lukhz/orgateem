@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { Observable } from 'rxjs';
+import { Event } from '../model/event';
 
 
 @Component({
@@ -8,8 +11,11 @@ import { Component } from '@angular/core';
 })
 
 export class Tab2Page {
-
-  constructor() {}
+  public events: Observable<Event[]>;
+  
+  constructor(private dataService: DataService) {
+    this.events = this.dataService.getEvents();
+  }
  
 }
 

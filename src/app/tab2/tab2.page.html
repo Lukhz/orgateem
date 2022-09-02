@@ -5,14 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="background-image">
-  <ion-row>
-    <!--<ion-row *ngFor="let item of appService.getEvents()">-->
-    <h3>01-01-22<!--{{ item.date }}--></h3>
-  </ion-row>
-  <!--<ion-row *ngFor="let item of appService.getEvents()">-->
-  <ion-card >
+  <ion-row *ngFor="let event of events | async">
+  <ion-card style="width: 100%;">
     <ion-card-header>
-      name<!--{{ item.name }}-->
+      {{ event.sportart }}
     </ion-card-header>
     <ion-row>
     <ion-col size="4">
@@ -21,10 +17,10 @@
     </ion-col>
     <ion-col size="8">
       <ion-row>
-        <ion-col>descripten<!--{{ item.descripten }}--></ion-col>
+        <ion-col>{{ event.ort }}</ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>wann<!--{{ item.wann }}--></ion-col>
+        <ion-col>{{ event.startUhrzeit }} - {{ event.endeUhrzeit }}</ion-col>
       </ion-row>
     </ion-col>
   </ion-row>
@@ -48,4 +44,5 @@
       </ion-row>
   </ion-grid>
   </ion-card>
+  </ion-row>
 </ion-content>
