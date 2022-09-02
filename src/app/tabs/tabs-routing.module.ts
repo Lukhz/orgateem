@@ -13,6 +13,14 @@ const routes: Routes = [
           import('../tab1/tab1.module').then((m) => m.Tab1PageModule),
       },
       {
+        path: 'event-details/:id',
+        loadChildren: () =>
+          import('../event-details/event-details.module').then(
+            (m) => m.EventDetailsPageModule
+          ),
+      },
+
+      {
         path: 'tab2',
         loadChildren: () =>
           import('../tab2/tab2.module').then((m) => m.Tab2PageModule),

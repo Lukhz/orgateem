@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Event } from '../model/event';
@@ -16,7 +17,8 @@ export class Tab1Page {
   constructor(
     private dataService: DataService,
     public modalContraller: ModalController,
-    private routerOutletC: IonRouterOutlet
+    private routerOutletC: IonRouterOutlet,
+    private router: Router
   ) {
     this.events = this.dataService.getEvents();
     //for time
@@ -30,5 +32,9 @@ export class Tab1Page {
     });
 
     return await modal.present();
+  }
+
+  navigate() {
+    this.router.navigate(['../event-details']);
   }
 }
