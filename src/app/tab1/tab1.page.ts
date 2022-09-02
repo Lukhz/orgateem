@@ -1,5 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonModal } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { IonRouterOutlet, ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { Event } from '../model/event';
+import { NewEventPage } from '../new-event/new-event.page';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,11 +11,24 @@ import { IonModal } from '@ionic/angular';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  @ViewChild(IonModal) modal: IonModal;
+  public events: Observable<Event[]>;
 
-  constructor() {}
+  constructor(
+    private dataService: DataService,
+    public modalContraller: ModalController,
+    private routerOutletC: IonRouterOutlet
+  ) {
+    this.events = this.dataService.getEvents();
+    //for time
+  }
 
-  dismiss(){
-    this.modal.dismiss();
+  async openNewEventModal() {
+    const modal = await this.modalContraller.create({
+      component: NewEventPage,
+      swipeToClose: true,
+      presentingElement: this.routerOutletC.nativeEl,
+    });
+
+    return await modal.present();
   }
 }

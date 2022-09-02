@@ -36,6 +36,26 @@ const routes: Routes = [
     path: 'modal',
     loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   },
+  {
+    path: 'event-details',
+    loadChildren: () => import('./event-details/event-details.module').then( m => m.EventDetailsPageModule)
+  },
+  {
+    path: 'update-event',
+    loadChildren: () => import('./update-event/update-event.module').then( m => m.UpdateEventPageModule)
+  },
+  {
+    path: 'new-event',
+    loadChildren: () => import('./new-event/new-event.module').then( m => m.NewEventPageModule)
+  },
+  {
+    path: 'new-event',
+    loadChildren: () => import('./new-event/new-event.module').then( m => m.NewEventPageModule)
+  },
+  {
+    path: 'new-event',
+    loadChildren: () => import('./new-event/new-event.module').then( m => m.NewEventPageModule)
+  },
 
   /* {
     path: 'tab4',
