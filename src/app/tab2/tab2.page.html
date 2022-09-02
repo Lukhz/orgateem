@@ -1,50 +1,48 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button color="danger" (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+  <ion-toolbar color="orange" >
     <ion-title> Events in deiner Nähe </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-row>
-    <!--<ion-row *ngFor="let item of appService.getEvents()">-->
-    <h3>01-01-22<!--{{ item.date }}--></h3>
-  </ion-row>
-  <!--<ion-row *ngFor="let item of appService.getEvents()">-->
-  <ion-row>
-    <ion-col size="2">
+<ion-content [fullscreen]="true" class="background-image">
+  <ion-row *ngFor="let event of events | async">
+  <ion-card style="width: 100%;">
+    <ion-card-header>
+      {{ event.sportart }}
+    </ion-card-header>
+    <ion-row>
+    <ion-col size="4">
       photo
       <!--{{ item.photo }}-->
     </ion-col>
-    <ion-col size="6">
-      <ion-row
-        ><ion-col>name<!--{{ item.name }}--></ion-col></ion-row
-      >
-      <ion-row
-        ><ion-col>descripten<!--{{ item.descripten }}--></ion-col></ion-row
-      >
-      <ion-row
-        ><ion-col>wann<!--{{ item.wann }}--></ion-col></ion-row
-      >
+    <ion-col size="8">
+      <ion-row>
+        <ion-col>{{ event.ort }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>{{ event.startUhrzeit }} - {{ event.endeUhrzeit }}</ion-col>
+      </ion-row>
     </ion-col>
-    <ion-col size="1">
-      <ion-button (click)="appservice.zusagen(item)"
+  </ion-row>
+    <ion-grid>
+      <ion-row style="margin-left: 10%;">
+    <ion-col size="4">
+      <ion-button  (click)="appService.zusagen(item)" 
         ><ion-icon name="checkmark-outline"></ion-icon
       ></ion-button>
     </ion-col>
-    <ion-col size="1">
-      <ion-button (click)="appservice.vielleicht(item)"
+    <ion-col size="4">
+      <ion-button color="secondary" (click)="appService.vielleicht(item)"  
         ><ion-icon name="help-outline"></ion-icon
       ></ion-button>
     </ion-col>
-    <ion-col size="1">
-      <ion-button (click)="appservice.absagen(item)"
+    <ion-col size="4">
+      <ion-button color="danger" (click)="appService.absagen(item)"
         ><ion-icon name="ban-outline"></ion-icon
       ></ion-button>
     </ion-col>
+      </ion-row>
+  </ion-grid>
+  </ion-card>
   </ion-row>
 </ion-content>
