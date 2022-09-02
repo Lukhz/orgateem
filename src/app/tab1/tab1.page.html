@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="background-image">
   <ion-row>
     <!--<ion-row *ngFor="let item of appService.getEvents()">-->
     <h3>01-01-22<!--{{ item.date }}--></h3>
@@ -16,12 +16,12 @@
     <ion-card-header>
       name<!--{{ item.name }}-->
     </ion-card-header>
-  <ion-row>
-    <ion-col size="2">
+    <ion-row>
+    <ion-col size="4">
       photo
       <!--{{ item.photo }}-->
     </ion-col>
-    <ion-col size="6">
+    <ion-col size="8">
       <ion-row>
         <ion-col>descripten<!--{{ item.descripten }}--></ion-col>
       </ion-row>
@@ -29,22 +29,26 @@
         <ion-col>wann<!--{{ item.wann }}--></ion-col>
       </ion-row>
     </ion-col>
-    <ion-col size="1">
-      <ion-button  (click)="appService.zusagen(item)"
+  </ion-row>
+    <ion-grid>
+      <ion-row style="margin-left: 10%;">
+    <ion-col size="4">
+      <ion-button  (click)="appService.zusagen(item)" 
         ><ion-icon name="checkmark-outline"></ion-icon
       ></ion-button>
     </ion-col>
-    <ion-col size="1">
-      <ion-button color="secondary" (click)="appService.vielleicht(item)"
+    <ion-col size="4">
+      <ion-button color="secondary" (click)="appService.vielleicht(item)"  
         ><ion-icon name="help-outline"></ion-icon
       ></ion-button>
     </ion-col>
-    <ion-col size="1">
+    <ion-col size="4">
       <ion-button color="danger" (click)="appService.absagen(item)"
         ><ion-icon name="ban-outline"></ion-icon
       ></ion-button>
     </ion-col>
-  </ion-row>
+      </ion-row>
+  </ion-grid>
   </ion-card>
 </ion-content>
 
@@ -56,22 +60,22 @@
   </ion-fab-button>
 </ion-fab>
 
-<ion-modal trigger="trigger-button" >
+<ion-modal trigger="trigger-button">
   <ng-template>
     <ion-header>
       <ion-toolbar>
           <ion-title>erstelle ein Event</ion-title>
-          <ion-button slot="end" (click)="appService.dismissModal()">
+          <ion-button slot="end" (click)="dismiss()">
             <ion-icon name="close-outline"></ion-icon>
           </ion-button>
         </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content class="background-image">
       <ion-input [(ngModel)]="appService.name">Name</ion-input>
-      <ion-input [(ngModel)]="appService.beschreibung">Beschreibung</ion-input>
-      <ion-input [(ngModel)]="appService.bewertung" type="number">Bewertung</ion-input>
-      <ion-input [(ngModel)]="appService.koordinaten" value="appService.getLocation()">Koordinaten</ion-input> 
-      <ion-input [(ngModel)]="appService.bild" value="appService.photoTaken()">Photo</ion-input>
+      <ion-input [(ngModel)]="appService.beschreibung">Sportart</ion-input>
+      <ion-input [(ngModel)]="appService.bewertung" type="number">Beschreibung</ion-input>
+      <ion-input [(ngModel)]="appService.koordinaten">Straße</ion-input> 
+      <ion-input [(ngModel)]="appService.bild">Ort</ion-input>
       <!--
       <ion-fab vertical="bottom" horizontal="center" slot="fixed">
         <ion-fab-button (click)="appService.addNewToGallery()">
