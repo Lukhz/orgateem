@@ -1,15 +1,16 @@
+<ion-content>
+
 <ion-header>
+  <ion-thumbnail class="logoimage">
+    <img src="../../assets/icon/logo-ohne.png"/>
+  </ion-thumbnail>
   <ion-toolbar>
-    <ion-title
-      >Herzlich willkommen! <br />
-      Loggt dich ein...</ion-title
-    >
+    <ion-title style="text-align: center;">Herzlich willkommen!</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
   <form [formGroup]="credentials" (ngSubmit)="login()">
-    <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-item fill="solid" style="margin: 10%;">
       <ion-input
         type="email"
         placeholder="E-Mail"
@@ -22,7 +23,7 @@
       >
     </ion-item>
 
-    <ion-item fill="solid" class="ion-margin-button">
+    <ion-item fill="solid" style="margin: 10%;">
       <ion-input
         type="password"
         placeholder="Passwort eingeben"
@@ -35,15 +36,16 @@
       >
     </ion-item>
 
-    <ion-button
+    <ion-button style="margin: 10%;"
       expand="block"
       fill="outline"
       type="submit"
       [disabled]="!credentials.valid"
       >Login</ion-button
     >
-    <ion-button expand="block" type="button" (click)="register()"
+    <ion-button expand="block" type="button" (click)="register()" style="margin: 10%;"
       >Account erstellen</ion-button
     >
   </form>
+
 </ion-content>
