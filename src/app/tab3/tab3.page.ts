@@ -66,17 +66,17 @@ export class Tab3Page {
         //console.log(`Event: ${value[i].ort}`)  
 
         //ToDo: Ort in Long und lati umwandeln
-        var geocoder = new google.maps.Geocoder()
+        /*var geocoder = new google.maps.Geocoder()
         geocoder.geocode({ 'address': value[i].ort}, function(results, status){
           if (status === 'OK'){
             console.log(results[0].geometry.location.lat() +' / '+results[0].geometry.location.lng())
           }else{
             console.log(status);
           }
-        })
+        })*/
         //console.log('result: '+ this.result[0].geometry.location.lat() +' / '+this.result[0].geometry.location.lng())
         //console.log(this.result.location.lat());
-        this.addMarkers(value[i].lng, value[i].lng, value[i].sportart, value[i].beschreibung)
+        this.addMarkers(value[i].lat, value[i].lng, value[i].sportart, value[i].beschreibung)
       }  
     })
     //console.log(this.map);

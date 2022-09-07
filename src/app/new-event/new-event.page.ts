@@ -57,7 +57,21 @@ export class NewEventPage implements OnInit {
   createEvent(values: any) {
     // copy all the form values into the new contact
     let newEvent: Event = { ...values };
-    this.dataService.createEvent(newEvent);
+    sessionStorage.setItem('event', JSON.stringify(newEvent));
+    var geocoder = new google.maps.Geocoder()
+        geocoder.geocode({ 'address': newEvent.ort}, function(results, status){
+          if (status === 'OK'){
+            var event = JSON.parse(sessionStorage.getItem('event'))
+            event.lat = results[0].geometry.location.lat()
+            event.lng = results[0].geometry.location.lng()
+            console.log(results[0].geometry.location.lat() +' / '+results[0].geometry.location.lng())
+            sessionStorage.setItem('eventAkt',JSON.stringify(event));
+          }else{
+            console.log(status);
+          }
+        })
+        var eventAkt = JSON.parse(sessionStorage.getItem('eventAkt'))
+    this.dataService.createEvent(eventAkt);
     this.dismissModal();
   }
 
