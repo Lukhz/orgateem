@@ -26,10 +26,10 @@
 
 
   <h1 style="margin:10%">
-    Name<!--Profilname-->
+    Name: <!--Profilname-->{{authServices.getUser().email}}
   </h1>
   <h3 style="margin:10%">
-    UserID<!--ProfilID-->
+    UserID: <!--ProfilID-->{{ authServices.getUser().uid}}
   </h3>
  
   <ion-button expand="block" color="danger" (click)="logout()" style="margin:5%">
