@@ -1,3 +1,5 @@
+import { DataService } from "../services/data.service";
+
 export class Event {
   id: string;
   username: string;
@@ -6,4 +8,12 @@ export class Event {
   ort: string;
   startUhrzeit: string;
   endeUhrzeit: string;
+  lat: number;
+  lng: number;
+
+  setlat(lat:number,event:Event){
+    event.lat = lat;
+    var dataService : DataService
+    dataService.updateEvent(event)
+  }
 }
