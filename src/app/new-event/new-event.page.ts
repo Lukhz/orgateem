@@ -54,12 +54,18 @@ export class NewEventPage implements OnInit {
     this.createForm.onSubmit(undefined);
   }
 
-  createEvent(values: any) {
+  delay(n){
+    return new Promise(function(resolve){
+        setTimeout(resolve,n*1000);
+    });
+}
+
+  async createEvent(values: any) {
     // copy all the form values into the new contact
     let newEvent: Event = { ...values };
     sessionStorage.setItem('event', JSON.stringify(newEvent));
     var geocoder = new google.maps.Geocoder()
-        geocoder.geocode({ 'address': newEvent.ort}, function(results, status){
+      await geocoder.geocode({ 'address': newEvent.ort}, async function(results, status){
           if (status === 'OK'){
             var event = JSON.parse(sessionStorage.getItem('event'))
             event.lat = results[0].geometry.location.lat()
@@ -71,7 +77,8 @@ export class NewEventPage implements OnInit {
           }
         })
         var eventAkt = JSON.parse(sessionStorage.getItem('eventAkt'))
-    this.dataService.createEvent(eventAkt);
+        this.dataService.createEvent(eventAkt);
+        sessionStorage.clear();
     this.dismissModal();
   }
 
