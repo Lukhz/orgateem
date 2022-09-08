@@ -10,6 +10,7 @@ export class Event {
   endeUhrzeit: string;
   lat: number;
   lng: number;
+  mitspieler: string[];
 
   setlat(lat:number,event:Event){
     event.lat = lat;

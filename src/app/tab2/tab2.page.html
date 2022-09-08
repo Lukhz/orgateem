@@ -6,7 +6,7 @@
 
 <ion-content [fullscreen]="true" class="background-image">
   <ion-row *ngFor="let event of events | async">
-  <ion-card style="width: 100%;">
+  <ion-card style="width: 100%;" [routerLink]="'../event-details/' + event.id">
     <ion-card-header style="font-size: 18px;">
       {{ event.sportart }}
     </ion-card-header>
@@ -23,9 +23,9 @@
       </ion-row>
     </ion-col>
   </ion-row>
-    <ion-grid>
+    <!--<ion-grid>
       <ion-row style="margin-left: 10%;">
-    <ion-col size="4">
+    <ion-col size="6">
       <ion-button  (click)="appService.zusagen(item)" 
         ><ion-icon name="checkmark-outline"></ion-icon
       ></ion-button>
@@ -34,14 +34,14 @@
       <ion-button color="secondary" (click)="appService.vielleicht(item)"  
         ><ion-icon name="help-outline"></ion-icon
       ></ion-button>
-    </ion-col>
-    <ion-col size="4">
+    </ion-col
+    <ion-col size="6">
       <ion-button color="danger" (click)="appService.absagen(item)"
         ><ion-icon name="ban-outline"></ion-icon
       ></ion-button>
     </ion-col>
       </ion-row>
-  </ion-grid>
+  </ion-grid>-->
   </ion-card>
   </ion-row>
 </ion-content>

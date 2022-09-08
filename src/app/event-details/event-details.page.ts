@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Event } from '../model/event';
+import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class EventDetailsPage implements OnInit, OnDestroy {
   constructor(
     private dataService: DataService,
     private activateRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authServices: AuthService
   ) {}
 
   ngOnInit() {
@@ -36,4 +38,18 @@ export class EventDetailsPage implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub1.unsubscribe();
   }
+
+  accept(event: Event){
+    event.mitspieler.push(this.authServices.getUser().uid);
+    this.dataService.updateEvent(event);
+  }
+  decline(event:Event){
+    var uid = this.authServices.getUser().uid;
+
+    event.mitspieler.forEach( (item, index) => {
+      if(item === uid) console.log(item + ' / ' + index) ; event.mitspieler.splice(index,1);
+    });
+    this.dataService.updateEvent(event)
+  }
+
 }

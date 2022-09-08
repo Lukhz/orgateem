@@ -42,6 +42,18 @@
           <ion-label position="stacked">Ort</ion-label>
           <ion-input color="primary" readonly="true">{{event.ort}}</ion-input>
         </ion-item>
+        <ion-item>
+          <ion-col size="6">
+            <ion-button  (click)="accept(event)" 
+              ><ion-icon name="checkmark-outline"></ion-icon
+            ></ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="danger" (click)="decline(event)"
+              ><ion-icon name="ban-outline"></ion-icon
+            ></ion-button>
+          </ion-col>
+        </ion-item>
       </ion-list>
     </ion-col>
   </ion-row>

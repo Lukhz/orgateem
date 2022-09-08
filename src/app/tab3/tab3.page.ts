@@ -67,7 +67,7 @@ export class Tab3Page {
 
         //ToDo: Ort in Long und lati umwandeln
         /*var geocoder = new google.maps.Geocoder()
-        geocoder.geocode({ 'address': value[i].ort}, function(results, status){
+        geocoder.geocode({ 'address': value[i].ort}, function(results, status) => {
           if (status === 'OK'){
             console.log(results[0].geometry.location.lat() +' / '+results[0].geometry.location.lng())
           }else{

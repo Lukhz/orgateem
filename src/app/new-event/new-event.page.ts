@@ -9,6 +9,7 @@ import { IonDatetime, ModalController } from '@ionic/angular';
 import { Event } from '../model/event';
 import { DataService } from '../services/data.service';
 import { format, parseISO } from 'date-fns';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-new-event',
@@ -30,7 +31,8 @@ export class NewEventPage implements OnInit {
 
   constructor(
     private modalController: ModalController,
-    private dataService: DataService
+    private dataService: DataService,
+    private authServices: AuthService
   ) {
     //rufe setDate
     this.setToday();
@@ -63,6 +65,12 @@ export class NewEventPage implements OnInit {
   async createEvent(values: any) {
     // copy all the form values into the new contact
     let newEvent: Event = { ...values };
+
+    //Mitspieler init und user als erste Zusage
+    newEvent.mitspieler = new Array<string>;
+    newEvent.mitspieler.push(this.authServices.getUser().uid);
+
+    //lat und lng von dem eingetragenen Ort
     sessionStorage.setItem('event', JSON.stringify(newEvent));
     var geocoder = new google.maps.Geocoder()
       await geocoder.geocode({ 'address': newEvent.ort}, async function(results, status){
@@ -77,6 +85,8 @@ export class NewEventPage implements OnInit {
           }
         })
         var eventAkt = JSON.parse(sessionStorage.getItem('eventAkt'))
+        
+        //alles abspeichern in der Realtime Database
         this.dataService.createEvent(eventAkt);
         sessionStorage.clear();
     this.dismissModal();
