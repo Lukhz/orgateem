@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="end">
+  <ion-toolbar color="orange" >
+    <!--<ion-buttons slot="end">
       <ion-button color="danger" (click)="logout()">
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
-    </ion-buttons>
+    </ion-buttons>-->
     <ion-title>Mein Profil</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -23,4 +23,17 @@
       </ng-template>
     </ion-avatar>
   </div>
+
+
+  <h1 style="margin:10%">
+    Name: <!--Profilname-->{{authServices.getUser().email}}
+  </h1>
+  <h3 style="margin:10%">
+    UserID: <!--ProfilID-->{{ authServices.getUser().uid}}
+  </h3>
+ 
+  <ion-button expand="block" color="danger" (click)="logout()" style="margin:5%">
+    Logout
+  </ion-button>
+
 </ion-content>

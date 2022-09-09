@@ -1,0 +1,60 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Events" defaultHref="../tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button
+        color="primary"
+        *ngIf="event"
+        [routerLink]="'/update-event/' + event.id"
+      >
+        Edit
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="event">
+  <ion-row>
+    <ion-col class="content-col">
+      <ion-thumbnail class="user-image">
+        <img src="/assets/avatar.png" />
+      </ion-thumbnail>
+      <ion-text color="dark">
+        <h2 class="user-name">{{event.username}}</h2>
+      </ion-text>
+
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Sportart</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{event.sportart}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Uhrzeit</ion-label>
+          <ion-input color="primary" readonly="true"
+            >{{event.startUhrzeit}} - {{event.endeUhrzeit}}</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Ort</ion-label>
+          <ion-input color="primary" readonly="true">{{event.ort}}</ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-col size="6">
+            <ion-button  (click)="accept(event)" 
+              ><ion-icon name="checkmark-outline"></ion-icon
+            ></ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="danger" (click)="decline(event)"
+              ><ion-icon name="ban-outline"></ion-icon
+            ></ion-button>
+          </ion-col>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>

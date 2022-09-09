@@ -32,7 +32,7 @@ export class Tab4Page {
 
   async changeImage() {
     const image = await Camera.getPhoto({
-      quality: 100,
+      quality: 60,
       allowEditing: false,
       resultType: CameraResultType.Base64,
       source: CameraSource.Photos, // Camera, Photos or Prompt!
