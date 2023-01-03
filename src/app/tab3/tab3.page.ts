@@ -46,7 +46,7 @@ export class Tab3Page {
   async createMap() {
     this.map = await GoogleMap.create({
       id: 'my-map',
-      apiKey: 'AIzaSyCsoY6-iLzUlPQCXGRmJmk-5OIHXcAI9yE',
+      apiKey: 'null',
       element: this.mapRef.nativeElement,
       // forceCreate: true,
       config: {
